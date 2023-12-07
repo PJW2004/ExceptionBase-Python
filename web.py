@@ -4,9 +4,9 @@ from . import st_3xx
 from . import st_4xx
 from . import st_5xx
 
-from . import constant
+from fastapi import HTTPException
 
-class CODE_100_1(constant.SYSTEM_EXCEPTION_OBJECT):
+class CODE_100_1(HTTPException):
     def __init__(self, obj: str = ""):
         self.status = st_1xx.ErrorCodes.CODE_100_STATUS
         self.msg: str = f"{st_1xx.ErrorCodes.CODE_100_1} : {obj}"
